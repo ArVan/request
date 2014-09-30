@@ -890,10 +890,10 @@ Request.prototype.onResponse = function (response) {
     else addCookie(response.headers[headerName])
   }
 
-  var redirectTo = null;
-  var isStatusRedirect = false;
+  var redirectTo = null
+  var isStatusRedirect = false
   if (response.statusCode >= 300 && response.statusCode < 400 && response.caseless.has('location')) {
-    isStatusRedirect = true;
+    isStatusRedirect = true
     var location = response.caseless.get('location')
     debug('redirect', location)
 
@@ -987,9 +987,9 @@ Request.prototype.onResponse = function (response) {
     }
   }
 
-  if(isStatusRedirect) {
-    //remove authorization headers
-    self.removeHeader('authorization');
+  if (isStatusRedirect) {
+    // remove authorization headers
+    self.removeHeader('authorization')
   }
 
   if (redirectTo && self.allowRedirect.call(self, response)) {

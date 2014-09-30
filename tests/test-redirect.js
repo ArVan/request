@@ -12,6 +12,7 @@ var server = require('./server')
   ;
 
 var s = server.createServer()
+var other_s = server.createServer(6768)
 
 s.listen(s.port, function () {
   var server = 'http://localhost:' + s.port;
@@ -19,6 +20,7 @@ s.listen(s.port, function () {
   var passed = 0;
 
   bouncer(301, 'temp')
+  bouncer(301, 'auth')
   bouncer(301, 'double', 2)
   bouncer(302, 'perm')
   bouncer(302, 'nope')
